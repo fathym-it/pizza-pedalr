@@ -1,6 +1,6 @@
 {
 	"name": "@fathym-it/pizza-pedalr",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"scripts": {
 		"build:web": "ng build web --prod",
 		"deploy": "npm version patch && npm run deploy:all",
