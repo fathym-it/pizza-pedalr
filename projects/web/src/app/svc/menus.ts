@@ -45,11 +45,10 @@ export class MenusService {
         image: '', // 'http://www.trbimg.com/img-54186e6f/turbine/la-dd-olive-garden-unlimited-breadsticks-20140916',
         order: 1,
         price: {
-          Denver: 4.5,
-          'Winter Park': 4.95
+          Denver: 4.5
         },
         highlight: false,
-        locationName: '',
+        locationName: 'Denver',
         variations: []
       },
       {
@@ -58,11 +57,10 @@ export class MenusService {
         image: '', // 'http://www.trbimg.com/img-54186e6f/turbine/la-dd-olive-garden-unlimited-breadsticks-20140916',
         order: 1,
         price: {
-          Denver: 7.5,
-          'Winter Park': 7.95
+          Denver: 7.5
         },
         highlight: false,
-        locationName: '',
+        locationName: 'Denver',
         variations: []
       },
       {
@@ -72,11 +70,36 @@ export class MenusService {
         image: '',
         order: 1,
         price: {
-          Denver: 11,
+          Denver: 11
+        },
+        highlight: true,
+        locationName: 'Denver',
+        variations: []
+      },
+      {
+        Name: 'Spokes',
+        Description:
+          'Thick Pizza Dough Shaped into a 15" Pie Loaded with Garlic-Infused Olive Oil, Mozzarella Cheese, Cheddar Cheese, Cut into Thin Strips and Served with Side of Marinara',
+        image: '',
+        order: 1,
+        price: {
           'Winter Park': 12
         },
         highlight: true,
-        locationName: '',
+        locationName: 'Winter Park',
+        variations: []
+      },
+      {
+        Name: 'Small Spokes',
+        Description:
+          'Thick Pizza Dough Shaped into a 10" Pie Loaded with Garlic-Infused Olive Oil, Mozzarella Cheese, Cheddar Cheese, Cut into Thin Strips and Served with Side of Marinara',
+        image: '',
+        order: 1,
+        price: {
+          'Winter Park': 6
+        },
+        highlight: true,
+        locationName: 'Winter Park',
         variations: []
       },
       {
@@ -202,7 +225,7 @@ export class MenusService {
     const pizzas: MenuItem[] = [
       {
         Name: 'Granny Gear',
-        Description: 'Pizzaiolo Red Sauce, Pepperoni, Sausage, Onion, Mushroom, Black Olive',
+        Description: 'Red Sauce, Pepperoni, Sausage, Onion, Mushroom, Black Olive',
         image: '', // 'http://previews.123rf.com/images/brebca/brebca1209/brebca120900044/15313969-Tradition-Mexican-pizza-with-chili-salami-and-onion-Stock-Photo.jpg',
         order: 1,
         highlight: false,
@@ -212,7 +235,7 @@ export class MenusService {
       },
       {
         Name: 'Wild Pigs',
-        Description: 'Pizzaiolo Red Sauce, Canadian Bacon, Pepperoni, Sausage, Bacon',
+        Description: 'Red Sauce, Canadian Bacon, Pepperoni, Sausage, Bacon',
         image: '', // 'http://previews.123rf.com/images/brebca/brebca1209/brebca120900044/15313969-Tradition-Mexican-pizza-with-chili-salami-and-onion-Stock-Photo.jpg',
         order: 2,
         highlight: true,
@@ -222,17 +245,27 @@ export class MenusService {
       },
       {
         Name: 'Berm',
-        Description: 'Pizzaiolo Red Sauce, Artichoke, Chicken, Sundried Tomato, Feta Cheese',
+        Description: 'Red Sauce, Fresh Basil, Sundried Tomato, Artichoke, Chicken, Feta Cheese',
         image: '', // 'http://previews.123rf.com/images/brebca/brebca1209/brebca120900044/15313969-Tradition-Mexican-pizza-with-chili-salami-and-onion-Stock-Photo.jpg',
         order: 3,
         highlight: false,
-        locationName: '',
+        locationName: 'Denver',
+        price: null,
+        variations: []
+      },
+      {
+        Name: 'Berm',
+        Description: 'Red Sauce, Sundried Tomato, Artichoke, Chicken, Feta Cheese',
+        image: '', // 'http://previews.123rf.com/images/brebca/brebca1209/brebca120900044/15313969-Tradition-Mexican-pizza-with-chili-salami-and-onion-Stock-Photo.jpg',
+        order: 3,
+        highlight: false,
+        locationName: 'Winter Park',
         price: null,
         variations: []
       },
       {
         Name: 'Boulder Garden',
-        Description: 'Pizzaiolo Red Sauce, Broccoli, Mushroom, Black Olive, Onion, Fresh Tomato',
+        Description: 'Red Sauce, Broccoli, Mushroom, Black Olive, Onion, Fresh Tomato',
         image: '', // 'http://previews.123rf.com/images/brebca/brebca1209/brebca120900044/15313969-Tradition-Mexican-pizza-with-chili-salami-and-onion-Stock-Photo.jpg',
         order: 4,
         highlight: false,
@@ -242,7 +275,7 @@ export class MenusService {
       },
       {
         Name: 'Hardtail',
-        Description: 'Pizzaiolo Red Sauce, Pepperoni, Jalapeno, Pineapple, Cream Cheese',
+        Description: 'Red Sauce, Pepperoni, Jalapeno, Pineapple, Cream Cheese',
         image: '', // 'http://previews.123rf.com/images/brebca/brebca1209/brebca120900044/15313969-Tradition-Mexican-pizza-with-chili-salami-and-onion-Stock-Photo.jpg',
         order: 5,
         highlight: true,
@@ -252,7 +285,7 @@ export class MenusService {
       },
       {
         Name: 'Apex',
-        Description: 'Pizzaiolo Red Sauce, Canadian Bacon, Pineapple, Green Pepper',
+        Description: 'Red Sauce, Canadian Bacon, Pineapple, Green Pepper',
         image: '', // 'http://previews.123rf.com/images/brebca/brebca1209/brebca120900044/15313969-Tradition-Mexican-pizza-with-chili-salami-and-onion-Stock-Photo.jpg',
         order: 6,
         highlight: false,
@@ -262,7 +295,7 @@ export class MenusService {
       },
       {
         Name: 'Ratchet',
-        Description: 'Pizzaiola Red Sauce, Chicken, Roasted Red Peppers, Onion, Cream Cheese',
+        Description: 'Red Sauce, Chicken, Roasted Red Peppers, Onion, Cream Cheese, Green Chilies',
         image: '',
         order: 7,
         highlight: false,
@@ -336,7 +369,7 @@ export class MenusService {
         image: '',
         order: 14,
         highlight: false,
-        locationName: '',
+        locationName: 'Denver',
         price: null,
         variations: []
       },
@@ -346,7 +379,27 @@ export class MenusService {
         image: '',
         order: 15,
         highlight: false,
-        locationName: '',
+        locationName: 'Denver',
+        price: null,
+        variations: []
+      },
+      {
+        Name: 'Chrome',
+        Description: 'Alfredo Sauce, Chicken, Mushroom, Spinach, Feta',
+        image: '',
+        order: 14,
+        highlight: false,
+        locationName: 'Winter Park',
+        price: null,
+        variations: []
+      },
+      {
+        Name: 'White Knuckle',
+        Description: 'Alfredo Sauce, Bacon, Sausage, Fresh Tomato, Jalapeno',
+        image: '',
+        order: 15,
+        highlight: false,
+        locationName: 'Winter Park',
         price: null,
         variations: []
       },
@@ -385,17 +438,6 @@ export class MenusService {
         Description: 'BBQ Sauce, White Meat Chicken, Mushroom, Onion, Roasted Red Pepper, Cheddar Sprinkle',
         image: '', // 'http://previews.123rf.com/images/brebca/brebca1209/brebca120900044/15313969-Tradition-Mexican-pizza-with-chili-salami-and-onion-Stock-Photo.jpg',
         order: 18,
-        highlight: false,
-        locationName: '',
-        price: null,
-        variations: []
-      },
-      {
-        Name: 'Trackstand',
-        Description:
-          '1000 Island Base, Ground Beef, Bacon, Onion, Cheddar (placed on top after cooking), Lettuce, Pickles, Mustard Drizzle',
-        image: '', // 'http://previews.123rf.com/images/brebca/brebca1209/brebca120900044/15313969-Tradition-Mexican-pizza-with-chili-salami-and-onion-Stock-Photo.jpg',
-        order: 19,
         highlight: false,
         locationName: '',
         price: null,

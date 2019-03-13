@@ -114,7 +114,7 @@ export class LocationsService {
         HappyHourDescription: '1 PBR, and a Cheese MegaSlice',
         HappyHourPrice: 6.5,
         Description:
-          'Made to order and specialty combination pizzas.  also choose from a selection of appetizers, salads, sandwiches and pasta.'
+          'Made to order and specialty combination pizzas.  also choose from a selection of appetizers and salads.'
       }
     ];
   }

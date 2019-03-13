@@ -159,7 +159,7 @@
             </ul>
 
             <div class="pizza item" *ngFor="let pizza of pizzas" [ngClass]="{ highlight: pizza.highlight }">
-              <div class="info">
+              <div class="info" *ngIf="!pizza.locationName || pizza.locationName == location.Name">
                 <h3>{{ pizza.Name }}</h3>
 
                 <p>{{ pizza.Description }}</p>
@@ -192,8 +192,11 @@
             <div class="item">
               <h3>Sauces</h3>
 
-              <p>
+              <p *ngIf="location.Name == 'Denver'">
                 Red Sauce, Garlic-Infused Olive Oil, Sweet Chili Thai, Ricotta White Sauce, BBQ, Pesto, Ranch
+              </p>
+              <p *ngIf="location.Name == 'Winter Park'">
+                Red Sauce, Garlic-Infused Olive Oil, Sweet Chili Thai, BBQ, Pesto, Ranch, Alfredo Sauce
               </p>
             </div>
 
