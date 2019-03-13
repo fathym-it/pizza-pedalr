@@ -1,0 +1,45 @@
+<header>
+  <mat-toolbar>
+    <img class="logo" src="/assets/img/logo.png" />
+
+    <span class="example-fill-remaining-space">
+      <span fxHide="false" fxHide.sm="true" fxHide.xs="true">
+        <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+
+        <a mat-button routerLink="/denver/menu" routerLinkActive="active">Denver Menu</a>
+
+        <a mat-button routerLink="/winterpark/menu" routerLinkActive="active">Winter Park Menu</a>
+
+        <a mat-button href="https://ordering.chownow.com/order/4342/locations" routerLinkActive="active" target="_blank">
+          Start Online Order
+
+          <small>(Denver only)</small>
+        </a>
+      </span>
+
+      <button class="menu-btn" mat-icon-button [matMenuTriggerFor]="appMenu" fxHide="true" fxHide.sm="false" fxHide.xs="false">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item routerLink="/">Home</button>
+
+        <a mat-menu-item routerLink="/denver/menu">Denver Menu</a>
+
+        <button mat-menu-item routerLink="/winterpark/menu">Winter Park Menu</button>
+
+        <a mat-menu-item href="https://ordering.chownow.com/order/4342/locations" target="_blank">
+          Start Online Order
+
+          <small>(Denver only)</small>
+        </a>
+      </mat-menu>
+    </span>
+  </mat-toolbar>
+
+  <!-- <f-is-at-top [break]="750"></f-is-at-top> -->
+</header>
+
+<router-outlet></router-outlet>
+
+<footer></footer>

@@ -1,0 +1,188 @@
+﻿<div class="hero">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div class="info">
+      <h1>Pizza Pedal'r</h1>
+
+      <h2 fxHide="false" fxHide.xs="true">Eat Pizza. Drink Local. Live Colorado.</h2>
+    </div>
+  </div>
+
+  <div class="locations" fxLayout="row wrap" fxLayoutAlign="center center">
+    <div fxFlex="100%" fxFlex.md="50%" fxFlex.lg="50%" fxFlex.xl="50%">
+      <div class="action">
+        <a mat-raised-button class="order denver" routerLink="/denver/menu">
+          <h3>Denver <span>Menu</span> &raquo;</h3>
+        </a>
+      </div>
+    </div>
+
+    <div fxFlex="100%" fxFlex.md="50%" fxFlex.lg="50%" fxFlex.xl="50%">
+      <div class="action">
+        <a mat-raised-button color="accent" class="order wp" routerLink="/winterpark/menu">
+          <h3>Winter Park <span>Menu</span> &raquo;</h3>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="info" fxHide="true" fxHide.xs="false">
+    <h2>Eat Pizza. Drink Local. Live Colorado.</h2>
+  </div>
+</div>
+
+<div class="culture">
+  <div fxLayout="row wrap" fxLayoutAlign="center center">
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div>
+        <mat-card>
+          <img class="img-fluid" src="/assets/img/Pizza 1.jpg" />
+        </mat-card>
+      </div>
+    </div>
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div class="info">
+        <h2>Ride Bikes. <strong>Eat Pizza.</strong></h2>
+
+        <p>
+          Welcome to the Pedal'r, where all other pizza is downhill from here! all of our pizza - both slices and pies - are made to order.
+          This process may take more time and effort, but don't all good things? Upshift to the best pizza in Denver. Choose Pizza Pedal'r!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutAlign="center center">
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div class="info">
+        <h2><strong>Drink Local.</strong> Live Colorado.</h2>
+
+        <p>
+          A local, family-owned business that started in Winter Park, Colorado and has since found its second home in Denver. Whether you've
+          spent the whole day skiing in fresh powder, mountain biking on some of the best trials in america or are just walking around the
+          neighborhood we are here to satisfy all of your pizza cravings!
+        </p>
+      </div>
+    </div>
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div>
+        <mat-card>
+          <img class="img-fluid" src="/assets/img/Pizza Pedal'r 1.jpg" />
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact">
+  <h2>Get Connected</h2>
+
+  <div class="details" fxLayout="row wrap" fxLayoutAlign="center center">
+    <!-- <div class="map" fxFlex="40%" fxFlex.xs="0%" fxFlex.sm="0%">
+			<div>
+				<mat-card>
+					<f-map class="map-wrap" [key]="mapKey" [address]="(Profile | async)?.Address.Denver" [name]="(Profile | async)?.DisplayName"></f-map>
+				</mat-card>
+			</div>
+		</div> -->
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="70%">
+      <div class="info">
+        <h3>Denver</h3>
+
+        <p>
+          Serving the Union Station North neighborhood and Downtown Denver. Inspired by the mountain biking trails of Winter Park, the
+          Denver location's laid-back and comfortable decor provide a break from the bustle of the city and inspires your next mountain
+          adventure. Pizza Pedal'r offers some of the best pizza in Denver and a selection of local beer to make you proud.
+        </p>
+
+        <a mat-raised-button class="order" href="https://ordering.chownow.com/order/4342/locations" target="_blank">
+          Start Online Order
+        </a>
+
+        <a mat-raised-button routerLink="/denver/menu">
+          View Menu
+        </a>
+
+        <a
+          mat-raised-button
+          href="https://wego.here.com/directions/mix//Pizza-Pedal%E2%80%99r-Denver,-2907-Huron-St,-80202-Denver:e-eyJuYW1lIjoiUGl6emEgUGVkYWxcdTIwMTlyIC0gRGVudmVyIiwiYWRkcmVzcyI6IjI5MDcgSHVyb24gU3QsIERlbnZlciwgQ29sb3JhZG8iLCJsYXRpdHVkZSI6MzkuNzU4NTc2OCwibG9uZ2l0dWRlIjotMTA0Ljk5NzQ5MzgsInByb3ZpZGVyTmFtZSI6ImZhY2Vib29rIiwicHJvdmlkZXJJZCI6NzE5ODkzNzE4MDkwMDIyfQ==?map=39.75858,-104.99749,15,normal&fb_locale=en_US"
+          target="_blank"
+        >
+          Get Directions
+        </a>
+
+        <a mat-raised-button href="tel:7203288742">
+          (720) 328-8742
+        </a>
+
+        <a mat-raised-button href="https://www.facebook.com/pizza.pedalr.denver/" target="_blank">
+          <i class="fa fa-facebook-f fa-2x"></i>
+        </a>
+
+        <address>
+          2907 Huron St <br />
+          Denver, Colorado 80202
+        </address>
+      </div>
+    </div>
+
+    <!-- <div class="map" fxFlex="0%" fxFlex.xs="100%" fxFlex.sm="70%">
+			<div>
+				<mat-card>
+					<f-map class="map-wrap" [key]="mapKey" [address]="(Profile | async)?.Address.Denver" [name]="(Profile | async)?.DisplayName"></f-map>
+				</mat-card>
+			</div>
+		</div> -->
+
+    <div fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="70%">
+      <div class="info">
+        <h3>Winter Park</h3>
+
+        <p>
+          Stop in after your ride down the mountain for the best happy hour and pizza in Winter Park. Enjoy great end of the day deals and
+          an atmosphere inspired by the slopes and trails right in our backyard.
+        </p>
+
+        <a mat-raised-button routerLink="/winterpark/menu">
+          View Menu
+        </a>
+
+        <a
+          mat-raised-button
+          href="https://wego.here.com/directions/mix//Pizza-Pedalr-Winter-Park,-125-Parry-Peak-Way,-80482-Winter-Park:e-eyJuYW1lIjoiUGl6emEgUGVkYWwnciAtIFdpbnRlciBQYXJrIiwiYWRkcmVzcyI6IjEyNSBQYXJyeSBQZWFrIFdheSwgV2ludGVyIFBhcmssIENvbG9yYWRvIiwibGF0aXR1ZGUiOjM5Ljg4NDk1Mzk1NDkxNCwibG9uZ2l0dWRlIjotMTA1Ljc2MjQ3ODU4OCwicHJvdmlkZXJOYW1lIjoiZmFjZWJvb2siLCJwcm92aWRlcklkIjoxODUzNzgzMzQ4MTM2MzR9?map=39.88495,-105.76248,15,normal&fb_locale=en_US"
+          target="_blank"
+        >
+          Get Directions
+        </a>
+
+        <a mat-raised-button href="tel:9707265944">
+          (970) 726-5944
+        </a>
+
+        <a mat-raised-button href="https://www.facebook.com/Pizza-Pedalr-Winter-Park-185378334813634/" target="_blank">
+          <i class="fa fa-facebook-f fa-2x"></i>
+        </a>
+
+        <address>
+          125 Parry Peak Way<br />
+          Winter Park, Colorado 80482
+        </address>
+      </div>
+    </div>
+
+    <!-- <div class="map" fxFlex="40%" fxFlex.xs="100%" fxFlex.sm="70%">
+      <div>
+        <mat-card>
+          <f-map
+            class="map-wrap"
+            [key]="mapKey"
+            [address]="((Profile | async)?.Address)['Winter Park']"
+            [name]="(Profile | async)?.DisplayName"
+          ></f-map>
+        </mat-card>
+      </div>
+    </div> -->
+  </div>
+</div>

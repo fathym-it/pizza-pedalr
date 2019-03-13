@@ -1,0 +1,495 @@
+﻿<div class="hero">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div class="info">
+      <h1>Pizza<br />Pedal'r</h1>
+
+      <!--<h2>{{(Profile | async)?.Tagline}}</h2>-->
+    </div>
+  </div>
+
+  <div class="details" fxLayout="row wrap" fxLayoutAlign="center center">
+    <div fxFlex="45%" fxHide="false" fxHide.xs="true">
+      <div *ngIf="location.Name == 'Denver'">
+        <h4 color="primary" style="text-decoration: underline;" *ngIf="showTempBikes">We will be closed Sunday, July 30th.</h4>
+
+        <h4 color="primary" *ngIf="showTempBikes">
+          This Sunday July 30th is the FREE RIDE FESTIVAL in Winter Park which is the largest biking event in the U.S. I thought it would be
+          a nice gesture to treat my Denver staff to a day in the mountains to watch the festival and see the "roots" of the Pedal'r.
+        </h4>
+
+        <br />
+
+        <div *ngIf="!showOnlyBikes">
+          <h4>Mon - Thurs: <strong>11am - 10pm</strong></h4>
+
+          <h4>Fri - Sat: <strong>11am - Midnight</strong></h4>
+
+          <h4>Sunday: <strong>12pm - 10pm</strong></h4>
+        </div>
+      </div>
+
+      <div *ngIf="location.Name == 'Winter Park'">
+        <!--<h4 style="text-decoration: underline;">Hours</h4>-->
+
+        <h4>Mon - Sun: <strong>11am - Close</strong></h4>
+      </div>
+    </div>
+
+    <div fxFlex="45%" fxFlex.xs="100%" *ngIf="location.Name != 'Denver' || !showOnlyBikes">
+      <div>
+        <a
+          mat-raised-button
+          class="order"
+          href="https://ordering.chownow.com/order/4342/locations"
+          target="_blank"
+          *ngIf="location.Name != 'Winter Park'"
+        >
+          Start Online Order
+        </a>
+
+        <ng-container *ngIf="location.Name == 'Denver'">
+          <a mat-raised-button href="tel:7203288742">
+            (720) 328-8742
+          </a>
+
+          <a
+            mat-raised-button
+            href="https://wego.here.com/directions/mix//Pizza-Pedal%E2%80%99r-Denver,-2907-Huron-St,-80202-Denver:e-eyJuYW1lIjoiUGl6emEgUGVkYWxcdTIwMTlyIC0gRGVudmVyIiwiYWRkcmVzcyI6IjI5MDcgSHVyb24gU3QsIERlbnZlciwgQ29sb3JhZG8iLCJsYXRpdHVkZSI6MzkuNzU4NTc2OCwibG9uZ2l0dWRlIjotMTA0Ljk5NzQ5MzgsInByb3ZpZGVyTmFtZSI6ImZhY2Vib29rIiwicHJvdmlkZXJJZCI6NzE5ODkzNzE4MDkwMDIyfQ==?map=39.75858,-104.99749,15,normal&fb_locale=en_US"
+            target="_blank"
+          >
+            Directions
+          </a>
+        </ng-container>
+
+        <ng-container *ngIf="location.Name == 'Winter Park'">
+          <a mat-raised-button href="tel:9707265944">
+            (970) 726-5944
+          </a>
+
+          <a
+            mat-raised-button
+            href="https://wego.here.com/directions/mix//Pizza-Pedalr-Winter-Park,-125-Parry-Peak-Way,-80482-Winter-Park:e-eyJuYW1lIjoiUGl6emEgUGVkYWwnciAtIFdpbnRlciBQYXJrIiwiYWRkcmVzcyI6IjEyNSBQYXJyeSBQZWFrIFdheSwgV2ludGVyIFBhcmssIENvbG9yYWRvIiwibGF0aXR1ZGUiOjM5Ljg4NDk1Mzk1NDkxNCwibG9uZ2l0dWRlIjotMTA1Ljc2MjQ3ODU4OCwicHJvdmlkZXJOYW1lIjoiZmFjZWJvb2siLCJwcm92aWRlcklkIjoxODUzNzgzMzQ4MTM2MzR9?map=39.88495,-105.76248,15,normal&fb_locale=en_US"
+            target="_blank"
+          >
+            Directions
+          </a>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="menu" id="menu">
+  <div class="container">
+    <div class="heading">
+      <h1>{{ location.Name }} Menu</h1>
+
+      <div class="details" fxLayout="row wrap" fxLayoutAlign="center center" fxHide="true" fxHide.xs="false">
+        <div fxFlex="100%">
+          <div *ngIf="location.Name == 'Denver'">
+            <h4>Mon - Thurs<br /><strong>11am - 10pm</strong></h4>
+
+            <h4>Fri - Sat<br /><strong>11am - Midnight</strong></h4>
+
+            <h4>Sunday<br /><strong>12pm - 10pm</strong></h4>
+          </div>
+
+          <div *ngIf="location.Name == 'Winter Park'">
+            <h4>Mon - Sun<br /><strong>11am - Close</strong></h4>
+          </div>
+        </div>
+      </div>
+
+      <p>{{ location.Description }}</p>
+    </div>
+
+    <div class="push-down-4x">
+      <div class="menu-items">
+        <section class="menu-section appetizers" id="appetizers">
+          <h2>
+            Appetizers
+          </h2>
+
+          <div class="item" *ngFor="let appetizer of appetizers">
+            <div class="info push-down" *ngIf="!appetizer.locationName || appetizer.locationName == location.Name">
+              <h3 class="text-uppercase">
+                {{ appetizer.Name }}
+              </h3>
+
+              <p>{{ appetizer.Description }}</p>
+
+              <strong class="price">
+                <span *ngIf="appetizer.price[location.Name]">
+                  {{ appetizer.price[location.Name] | currency: 'USD':'symbol':'1.0-2' }}
+                </span>
+
+                <span *ngIf="!appetizer.price['naked'] && !appetizer.price[location.Name]">
+                  {{ appetizer.price | currency: 'USD':'symbol':'1.0-2' }}
+                </span>
+              </strong>
+
+              <div class="item" *ngFor="let apVariation of appetizer.variations">
+                <h3>
+                  {{ apVariation.Name }}
+                </h3>
+
+                <p>{{ apVariation.Description }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="menu-section specialty-pizzas" id="specialtyPizzas">
+          <h2>
+            Specialty Pizzas
+          </h2>
+
+          <div class="details">
+            <ul class="prices">
+              <li class="lead" *ngFor="let price of pizzaPrices">
+                &nbsp;{{ price.Name }}
+                <strong *ngIf="price.price[location.Name]">
+                  {{ price.price[location.Name] | currency: 'USD':'symbol':'1.0-2' }}
+                </strong>
+
+                <strong *ngIf="!price.price[location.Name]">
+                  {{ price.price | currency: 'USD':'symbol':'1.0-2' }}
+                </strong>
+              </li>
+            </ul>
+
+            <div class="pizza item" *ngFor="let pizza of pizzas" [ngClass]="{ highlight: pizza.highlight }">
+              <div class="info">
+                <h3>{{ pizza.Name }}</h3>
+
+                <p>{{ pizza.Description }}</p>
+              </div>
+            </div>
+
+            <h4>*Gluten Free Crust Prepared In Common Kitchen</h4>
+          </div>
+        </section>
+
+        <section class="menu-section build-pizzas" id="buildPizzas">
+          <h2>
+            Make Your Own Pizza
+          </h2>
+
+          <div>
+            <ul class="prices">
+              <li class="lead" *ngFor="let price of byoPizzaPrices">
+                &nbsp;{{ price.Name }}
+                <strong *ngIf="price.price[location.Name]">
+                  {{ price.price[location.Name] | currency: 'USD':'symbol':'1.0-2' }}
+                </strong>
+
+                <strong *ngIf="!price.price[location.Name]">
+                  {{ price.price | currency: 'USD':'symbol':'1.0-2' }}
+                </strong>
+              </li>
+            </ul>
+
+            <div class="item">
+              <h3>Sauces</h3>
+
+              <p>
+                Red Sauce, Garlic-Infused Olive Oil, Sweet Chili Thai, Ricotta White Sauce, BBQ, Pesto, Ranch
+              </p>
+            </div>
+
+            <div class="item">
+              <h3 class="text-uppercase">Toppings</h3>
+
+              <ul class="prices list-unstyled list-inline">
+                <li class="" *ngFor="let price of toppingPrices">
+                  &nbsp;{{ price.Name }}
+                  <strong>{{ price.price | currency: 'USD':'symbol':'1.0-2' }}</strong>
+                </li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <h4>Veggies</h4>
+
+              <p>
+                Artichoke, Banana Peppers, Basil, Broccoli, Black Olives, Capers, Green Chilies, Green Olives, Green Peppers, Jalapeno,
+                Mushroom, Red Onion, Roasted Red Peppers, Spinach, Sundried Tomatoes, Fresh Tomato
+              </p>
+            </div>
+
+            <div class="item">
+              <h4>Meats</h4>
+
+              <p>
+                Anchovies, Bacon, Canadian Bacon, Chicken (Plain, Bbq, Buffalo, Thai), Ground Beef, Pepperoni, Sausage
+              </p>
+            </div>
+
+            <div class="item">
+              <h4>Other</h4>
+
+              <p>Pineapple, Cheddar, Cream Cheese, Feta, Fresh Mozzarella</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="menu-section salads" id="salads">
+          <h2>
+            Salads
+          </h2>
+
+          <div>
+            <div class="item">
+              <h3>Caesar Salad</h3>
+
+              <p>
+                Romaine Lettuce Tossed with Croutons, Parmesan Cheese and Caesar Dressing
+              </p>
+
+              <strong class="price" *ngIf="location.Name == 'Denver'">$6.95</strong>
+              <strong class="price" *ngIf="location.Name == 'Winter Park'">$7.95</strong>
+            </div>
+
+            <div class="item">
+              <h3>House Salad</h3>
+
+              <p>
+                Spring Mix with Tomatoes, Carrots, Cucumbers, Peppers, Croutons and Parmesan Cheese
+              </p>
+
+              <strong class="price" *ngIf="location.Name == 'Denver'">$6.95</strong>
+              <strong class="price" *ngIf="location.Name == 'Winter Park'">$7.95</strong>
+            </div>
+
+            <div *ngIf="location.Name == 'Denver'">
+              <h3>Caprese Salad</h3>
+
+              <p>
+                Fresh Mozzarella Pearls, Cherry Tomatoes, Fresh Basil Leaves, Balsamic Vinega
+              </p>
+
+              <strong class="price">$6.95</strong>
+            </div>
+
+            <div *ngIf="location.Name == 'Denver'">
+              <h3>Ceasar or House Side Salad</h3>
+
+              <strong class="price">$4.95</strong>
+            </div>
+
+            <div class="item">
+              <h3>Dressing Options</h3>
+
+              <p>
+                Balsamic Vinaigrette, Blue Cheese, Italian, Ranch, Raspberry Walnut Vinaigrette, 1000 Island
+              </p>
+            </div>
+
+            <h4>
+              Add chicken to any salad for +$3
+            </h4>
+          </div>
+        </section>
+
+        <section class="menu-section pasta" id="pasta" *ngIf="location.Name != 'Winter Park'">
+          <h2>
+            Pasta
+          </h2>
+
+          <div>
+            <div class="item">
+              <h3>Make Your Own Cheese Tortellini</h3>
+
+              <strong class="price">$9.95</strong>
+            </div>
+
+            <div class="item">
+              <h3>1. Pick Your Sauce:</h3>
+
+              <p>Red Sauce, Garlic Infused Olive Oil, Pesto, Ricotta White Sauce, Sweet Chili Thai Sauce</p>
+            </div>
+
+            <div class="item">
+              <h3>2. Mix in Two Pizza Toppings or Meats</h3>
+
+              <p>(See Full List Below)</p>
+            </div>
+
+            <div class="item">
+              <h3>Additional Toppings</h3>
+
+              <strong class="price">$0.80</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="menu-section subs" id="subs" *ngIf="location.Name != 'Winter Park'">
+          <h2>
+            Sandwiches
+          </h2>
+
+          <div>
+            <div class="item">
+              <h3>Italian Chicken Parmesan</h3>
+
+              <p>Breaded Chicken Filet with Melted Mozzarella Cheese and Covered with Red Sauce</p>
+
+              <strong class="price">$8.95</strong>
+            </div>
+
+            <div class="item">
+              <h3>Italian Meatball</h3>
+
+              <p>Three Large Meatballs with Melted Mozzarella Cheese and Covered with Red Sauce</p>
+
+              <strong class="price">$8.95</strong>
+            </div>
+
+            <h4>First two pizza toppings Free<br />(each additional topping +$0.80)</h4>
+          </div>
+        </section>
+
+        <section class="menu-section kids" id="kids" *ngIf="location.Name == 'Winter Park'">
+          <h2>
+            Mini Pedalr's
+          </h2>
+
+          <div>
+            <div class="item">
+              <h3>Kids Meal</h3>
+
+              <p>Half of a Mega Cheese Slice, Fruit Cup, Choice of Milk or Juice</p>
+
+              <strong class="price">$5.25</strong>
+            </div>
+          </div>
+        </section>
+
+        <!--<section class="menu-section sides" id="sides">
+					<h2>
+						Sides
+					</h2>
+
+					<div>
+						<h3>Get It On the Side</h3>
+
+						<strong class="price">$0.50</strong>
+
+						<div fxLayout="row wrap" fxLayoutAlign="center center">
+							<div fxFlex="40%" class="item">
+								<h4>Ranch</h4>
+							</div>
+
+							<div fxFlex="40%" class="item">
+								<h4>Thai Chili</h4>
+							</div>
+
+							<div fxFlex="40%" class="item">
+								<h4>Marinara</h4>
+							</div>
+
+							<div fxFlex="40%" class="item">
+								<h4>Bleu Cheese</h4>
+							</div>
+						</div>
+					</div>
+				</section>-->
+
+        <!--<section class="menu-section desserts" id="desserts">
+					<h2>
+						Desserts
+					</h2>
+
+					<div>
+						<div class="item">
+							<h3>Nirvana Dessert Pizza Slice</h3>
+
+							<p>Peanut Butter, White Chocolate, Rice Crispies, Marshmallows and Chocolate Chips</p>
+
+							<strong class="price">$3.95</strong>
+						</div>
+
+						<div class="item">
+							<h3>Fudge Brownies</h3>
+
+							<strong class="price">$1.95</strong>
+						</div>
+
+						<h4>Rice Crispies, White Chocolate, Peanut Butter, Marshmallows and Chocolate Chips</h4>
+					</div>
+				</section>-->
+
+        <section class="menu-section drinks" id="drinks">
+          <h2>
+            Drinks
+          </h2>
+
+          <div>
+            <div class="item">
+              <h3>Soda</h3>
+
+              <p>(free refills)</p>
+
+              <strong class="price">$2.75</strong>
+            </div>
+
+            <div class="item">
+              <h3>Tea</h3>
+
+              <p>(sweetened or unsweetened)</p>
+
+              <strong class="price">$2.5</strong>
+            </div>
+
+            <div class="item">
+              <h3>Gatorade/Sports Drink</h3>
+
+              <strong class="price">$2.5</strong>
+            </div>
+
+            <div class="item">
+              <h4 *ngIf="location.Name == 'Denver'">Full Bar Available</h4>
+
+              <h4 *ngIf="location.Name == 'Winter Park'">Beer &amp; Wine Available</h4>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="happy-hour">
+        <mat-card>
+          <mat-card-title>
+            <h2>{{ location.HappyHourTitle }}</h2>
+
+            <p>{{ location.HappyHourDescription }}</p>
+
+            <h3>{{ location.HappyHourPrice | currency: 'USD':'symbol':'1.0-2' }}</h3>
+
+            <p *ngIf="location.Name == 'Denver'">
+              Gear-down from a long day at the bar top and enjoy the full bar selection. Experience Pizza Pedal'r and get your taste gears
+              grinding!
+            </p>
+          </mat-card-title>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="order-now">
+  <a mat-raised-button href="https://ordering.chownow.com/order/4342/locations" target="_blank" *ngIf="location.Name != 'Winter Park'">
+    Order Now
+  </a>
+
+  <ng-container *ngIf="location.Name == 'Denver'">
+    <a mat-raised-button href="Call Now">
+      (720) 328-8742
+    </a>
+  </ng-container>
+
+  <ng-container *ngIf="location.Name == 'Winter Park'">
+    <a mat-raised-button href="Call Now">
+      (970) 726-5944
+    </a>
+  </ng-container>
+</div>
