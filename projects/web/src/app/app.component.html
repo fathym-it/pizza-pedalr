@@ -10,11 +10,18 @@
 
         <a mat-button routerLink="/winterpark/menu" routerLinkActive="active">Winter Park Menu</a>
 
-        <a mat-button href="https://ordering.chownow.com/order/4342/locations" routerLinkActive="active" target="_blank">
+        <a mat-button href="https://slicelife.com/restaurants/co/denver/80202/pizza-pedal-r-denver/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=pizzapedalrdenver.com" routerLinkActive="active" target="_blank">
           Start Online Order
 
-          <small>(Denver only)</small>
+          <small>(Denver)</small>
         </a>
+
+        <a mat-button href="https://slicelife.com/restaurants/co/winter-park/80482/pizza-pedal-r-winter-park/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=pizzapedalrmenu.com" routerLinkActive="active" target="_blank">
+          Start Online Order
+
+          <small>(Winter Park)</small>
+        </a>
+
       </span>
 
       <button class="menu-btn" mat-icon-button [matMenuTriggerFor]="appMenu" fxHide="true" fxHide.sm="false" fxHide.xs="false">
@@ -28,10 +35,16 @@
 
         <button mat-menu-item routerLink="/winterpark/menu">Winter Park Menu</button>
 
-        <a mat-menu-item href="https://ordering.chownow.com/order/4342/locations" target="_blank">
+        <a mat-menu-item href="https://slicelife.com/restaurants/co/denver/80202/pizza-pedal-r-denver/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=pizzapedalrdenver.com" target="_blank">
           Start Online Order
 
-          <small>(Denver only)</small>
+          <small>(Denver)</small>
+        </a>
+
+        <a mat-menu-item href="https://slicelife.com/restaurants/co/winter-park/80482/pizza-pedal-r-winter-park/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=pizzapedalrmenu.com" target="_blank">
+          Start Online Order
+
+          <small>(Winter Park)</small>
         </a>
       </mat-menu>
     </span>
