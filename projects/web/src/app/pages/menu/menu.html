@@ -40,19 +40,9 @@
         <a
           mat-raised-button
           class="order"
-          href="https://slicelife.com/restaurants/co/denver/80202/pizza-pedal-r-denver/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=pizzapedalrdenver.com"
+          href="https://ordering.chownow.com/order/4342/locations"
           target="_blank"
           *ngIf="location.Name == 'Denver'"
-        >
-          Start Online Order
-        </a>
-
-        <a
-          mat-raised-button
-          class="order"
-          href="https://slicelife.com/restaurants/co/winter-park/80482/pizza-pedal-r-winter-park/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=pizzapedalrmenu.com"
-          target="_blank"
-          *ngIf="location.Name == 'Winter Park'"
         >
           Start Online Order
         </a>
@@ -490,13 +480,9 @@
 </div>
 
 <div class="order-now">
-    <a mat-raised-button href="https://slicelife.com/restaurants/co/denver/80202/pizza-pedal-r-denver/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=pizzapedalrdenver.com" target="_blank" *ngIf="location.Name == 'Denver'">
+    <a mat-raised-button href="https://ordering.chownow.com/order/4342/locations" target="_blank" *ngIf="location.Name == 'Denver'">
       Order Now
     </a>
-
-  <a mat-raised-button href="https://slicelife.com/restaurants/co/winter-park/80482/pizza-pedal-r-winter-park/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=pizzapedalrmenu.com" target="_blank" *ngIf="location.Name == 'Winter Park'">
-    Order Now
-  </a>
 
   <ng-container *ngIf="location.Name == 'Denver'">
     <a mat-raised-button href="Call Now">
